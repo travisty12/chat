@@ -10,3 +10,9 @@
     <button>Send</button>
   </form>
 </div>
+
+
+
+<button (click)='navigate()'></button>
+
+<h1 *ngFor='let info of information | async'>{{info.name}}</h1>
