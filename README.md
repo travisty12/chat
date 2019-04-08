@@ -1,6 +1,32 @@
-# Chat
+# TRNR8998
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+## Team Project
+* start date 04 / 08 / 19
+* deployment date 04/ 08 / 19
+
+
+### Created by:
+`Robbie Kruszynski`
+`Ryan McLean`
+`Travis Toal`
+`Nate Wessels`
+
+## Research
+*
+
+
+
+## Description
+*
+
+## Screenshots
+* ![application example](src/assets/img/screenProto.gif)
+
+
+
+
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
 
@@ -12,7 +38,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
