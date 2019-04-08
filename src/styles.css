@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+#loadingTag {
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  animation: loadWait .75s linear infinite;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes loadWait {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(90deg);}
+  50% { transform: rotate(270deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(540deg);}
+}
