@@ -1,5 +1,31 @@
 # TRNR8998
 
+## Team Project
+* start date 04 / 08 / 19
+* deployment date 04/ 08 / 19
+
+
+### Created by:
+`Robbie Kruszynski`
+`Ryan McLean`
+`Travis Toal`
+`Nate Wessels`
+
+## Research
+*
+
+
+
+## Description
+*
+
+## Screenshots
+* ![application example](src/assets/img/screenProto.gif)
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
