@@ -11,7 +11,7 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
   }
-  extendMenu = false
+  extendMenu;
 
   menu(){
     if (this.extendMenu){
