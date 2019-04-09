@@ -12,7 +12,11 @@ import { AppComponent } from './app.component';
 import { ForumComponent } from './forum/forum.component';
 import { ChatComponent } from './chat/chat.component';
 import { LandingComponent } from './landing/landing.component';
+<<<<<<< HEAD
 import { SplashComponent } from './splash/splash.component';
+=======
+import { BoardsComponent } from './boards/boards.component';
+>>>>>>> master
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -28,7 +32,11 @@ export const firebaseConfig = {
     ForumComponent,
     ChatComponent,
     LandingComponent,
+<<<<<<< HEAD
     SplashComponent
+=======
+    BoardsComponent
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
