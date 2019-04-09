@@ -1,20 +1,7 @@
+<div class="boardTotal">
 <div *ngIf="activeBoard">
   <div *ngIf="!threadShown">
-    <!-- <h5 *ngIf="!postThread" (click)="postThread=true">Post a new thread</h5>
-    <div *ngIf="postThread">
-      <p (click)="postThread=false">Close</p>
-      <div>
-        <label>Title:</label>
-        <br>
-        <textarea #threadTitle></textarea>
-        <br>
-        <label>Post:</label>
-        <br>
-        <textarea #threadText></textarea>
-        <br>
-      </div>
-      <button (click)="submitThread(threadTitle.value,threadText.value,activeBoard);threadText.value='';threadTitle.value='';postThread=false">Submit</button>
-    </div> -->
+
     <br>
     <div *ngFor="let thread of threads">
       <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
@@ -61,6 +48,7 @@
       <textarea #opText></textarea>
       <button (click)="newThread(opText.value, opName.value, opTitle.value, activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
 
+      </div>
     </div>
   </div>
 </div>
