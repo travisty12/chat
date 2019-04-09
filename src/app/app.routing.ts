@@ -5,7 +5,12 @@ import { LandingComponent } from './landing/landing.component';
 import { SplashComponent } from './splash/splash.component';
 import { BoardsComponent } from './boards/boards.component';
 import { ChatComponent } from './chat/chat.component';
+<<<<<<< HEAD
 import { NewsComponent } from './news/news.component';
+=======
+
+
+>>>>>>> master
 const appRoutes: Routes = [
   {
     path: '',
@@ -30,6 +35,10 @@ const appRoutes: Routes = [
   {
     path: 'boards',
     component: BoardsComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   }
 ];
 

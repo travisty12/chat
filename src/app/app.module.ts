@@ -15,6 +15,8 @@ import { LandingComponent } from './landing/landing.component'
 import { SplashComponent } from './splash/splash.component';
 import { BoardsComponent } from './boards/boards.component';
 import { NewsComponent } from './news/news.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -33,6 +35,8 @@ export const firebaseConfig = {
     SplashComponent,
     BoardsComponent,
     NewsComponent
+    NavbarComponent
+
 
   ],
   imports: [
