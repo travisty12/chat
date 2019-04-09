@@ -2,19 +2,16 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" routerLink=""><h1>Dino Trax</h1></a>
+        <a class="navbar-brand" routerLink=""><h1>8998</h1></a>
       </div>
-      <h5 *ngFor="let board of boards | async" routerLink="forum" (click)="activeBoard =board;loadBoard(board);threadShown=false">hello {{board['$key']}}</h5>
+      <h5 *ngFor="let board of boards | async" routerLink="forum" (click)="activeBoard =board;loadBoard(board);threadShown=false">{{board['$key']}}</h5>
     </div>
+    <a class="text-muted" routerLink="admin">Admin</a>
   </nav>
 
 
-  <app-forum [activeBoard]="activeBoard" [threadShown]="threadShown" [threads]="threads"></app-forum>
-  <router-outlet></router-outlet>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    <a class="text-muted" routerLink="admin">Admin</a>
+  <div class="body">
+    <app-forum [activeBoard]="activeBoard" [threadShown]="threadShown" [threads]="threads"></app-forum>
+    <router-outlet></router-outlet>
   </div>
-</footer>
+</div>
