@@ -3,6 +3,7 @@ import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Reply } from '../reply.model';
 import { Post } from '../post.model';
+import { cleanInput, sanitize } from '../sanitize.ts';
 
 @Component({
   selector: 'app-forum',
@@ -22,13 +23,17 @@ export class ForumComponent implements OnInit {
 
   ngOnInit() {
     // this.threads = this.databaseService.getThreads('Music');
+    // this.getDate(1000000000000);
   }
   loadThread(thread) {
     this.replies = thread.replies;
   }
 
   newThread(text: string, name: string, title: string, board) {
-    const image = "image goes here";
+    const image = sanitize("image goes here");
+    text = sanitize(text);
+    name = sanitize(name);
+    title = sanitize(title);
     const post = new Post(title, name, text, image);
     const boardName = board['$key'];
     const i = this.threads.length;
@@ -37,7 +42,9 @@ export class ForumComponent implements OnInit {
   }
 
   submitPost(text: string, name: string, thread, board) {
-    const image = "image goes here";
+    const image = sanitize("image goes here");
+    text = sanitize(text);
+    name = sanitize(name);
     this.a = this.replies;
     let i;
     if (this.a) {
@@ -55,6 +62,20 @@ export class ForumComponent implements OnInit {
     }
     return;
   }
+
+
+  getDate(time) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var d = new Date(time);
+    var month = d.getMonth();
+    var day = d.getDate();
+    var year = d.getFullYear();
+    let monthName = months[month];
+    let string = monthName + " " + day + ", " + year;
+    return string;
+  }
+
+
 
 
 }
