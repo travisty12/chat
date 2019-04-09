@@ -1,17 +1,18 @@
 $bgColor: #404040;
 $salmonColor: #F26161;
 
+.thing {
+  border: 2px solid red;
+}
 .all {
   width: 100%;
   height: 100%;
   position: fixed;
   background-image: url('../../assets/img/background.jpg');
   background-size: cover;
-  .navbar {
+  &>div {
     position: fixed;
     transition: 1s linear;
-    width: 7%;
-    min-width: 90px;
     height: 100%;
     .top {
       transition: 1s linear;
@@ -27,40 +28,27 @@ $salmonColor: #F26161;
           cursor: pointer;
         }
       }
-      .text {
-        display: none;
-      }
     }
     .bottom {
       height: 50%;
       width: 100%;
       background-color: $salmonColor;
     }
-  }
-}
 
-.extended {
-  transition: 1s linear;
-  width: 30%;
-  height: 100%;
-  min-width: 350px;
-  position: fixed;
-  .top {
-    transition: 1s linear;
-    width: 100%;
-    height: 50%;
-    display: grid;
-    background-color: $bgColor;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    img {
-      width: 25px;
-      justify-self: flex-start;
-      margin-top: 20px;
-      margin-left: 32px;
-      &:hover {
-        cursor: pointer;
-      }
+  }
+  .navbar {
+    min-width: 90px;
+    width: 7%;
+    .text {
+      display: none;
+    }
+  }
+  .extended {
+    width: 30%;
+    min-width: 350px;
+    .top {
+      display: grid;
+      grid-template-columns: auto 1fr;
     }
     .text {
       opacity: 1;
@@ -84,11 +72,5 @@ $salmonColor: #F26161;
         }
       }
     }
-  }
-  .bottom {
-    transition: 1s linear;
-    height: 50%;
-    width: 100%;
-    background-color: $salmonColor;
   }
 }
