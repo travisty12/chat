@@ -22,4 +22,14 @@ export class ForumComponent implements OnInit {
   loadThread(thread) {
     this.replies = thread.replies;
   }
+
+  newThread() {
+
+  }
+
+  submitPost(text: string, name: string) {
+    databaseService.addReply()
+  }
+
+
 }

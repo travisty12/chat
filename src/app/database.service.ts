@@ -15,4 +15,7 @@ export class DatabaseService {
   getThreads(board) {
     return this.database.object('boards/' + board);
   }
+  addReply(reply, thread, board) {
+    // this.boards.board.threads.thread.replies.push();
+  }
 }
