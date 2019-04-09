@@ -1,7 +1,7 @@
 <div class="all">
-  <div class="navbar">
+  <div class="navbar"  [class]='menu()'>
     <div class="top">
-      <img (click)="extendMenu()" [ngStyle]="navbar" src="../../assets/icons/salmonMenu.png" alt="">
+      <img (click)="extendMenu = !extendMenu" src="../../assets/icons/salmonMenu.png" alt="">
     </div>
     <div class="mid">
 
@@ -9,8 +9,5 @@
     <div class="bottom">
 
     </div>
-  </div>
-  <div class="">
-
   </div>
 </div>
