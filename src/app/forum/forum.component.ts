@@ -5,7 +5,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.css'],
+  styleUrls: ['./forum.component.scss'],
   providers: [DatabaseService]
 })
 export class ForumComponent implements OnInit {
@@ -27,9 +27,9 @@ export class ForumComponent implements OnInit {
 
   }
 
-  submitPost(text: string, name: string) {
-    databaseService.addReply()
-  }
+  // submitPost(text: string, name: string) {
+  //   this.databaseService.addReply()
+  // }
 
 
 }
