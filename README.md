@@ -43,7 +43,7 @@
 
 
 ## Screenshots alpha phase / sketch concepts
-* ![application example](src/assets/img/sketch.jpg)
+* ![application example](src/assets/img/sketch.png)
 
 ## Screenshots WireFrame / Prototype // static
 * ![application example](src/assets/img/splash.png)
