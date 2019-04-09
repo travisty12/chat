@@ -7,7 +7,7 @@ import { Post } from '../post.model';
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.css'],
+  styleUrls: ['./forum.component.scss'],
   providers: [DatabaseService]
 })
 export class ForumComponent implements OnInit {
