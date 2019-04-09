@@ -1,1 +1,15 @@
-
+<div class="chat">
+  <div *ngFor='let chat of chats'>
+    <div class="container">
+      <h4>{{chat.userName}}</h4>
+      <h6>{{chat.time}}</h6>
+      <h3>{{chat.text}}</h3>
+    </div>
+  </div>
+  <div class="sendMessage">
+    <label>Message:</label>
+    <input #userMessage>
+  </div>
+  <!-- <button (click)="sendMessage(userMessage.value);userMessage='';">Send!</button> -->
+  <app-navbar></app-navbar>
+</div>

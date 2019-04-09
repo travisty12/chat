@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'app-boards',
   templateUrl: './boards.component.html',
@@ -11,7 +12,7 @@ export class BoardsComponent implements OnInit {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   replies: FirebaseListObservable<any[]>;
-
+  threadShown = false;
 
   constructor(private database: DatabaseService) { }
 

@@ -14,8 +14,7 @@ export function sanitize(input) {
       return sanitize(index);
     });
   } else {
-    input = cleanInput(input);
-    output = input.replace('/[\'\"]/','\\\'');
+    output = cleanInput(input).replace('/\'/','\\\'').replace('/\"/','\\\"');
   }
   return output;
 }
