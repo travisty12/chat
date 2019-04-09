@@ -24,4 +24,13 @@ export class BoardsComponent implements OnInit {
     this.threads = board.threads;
   }
 
+  extendMenu;
+
+  menu(){
+    if (this.extendMenu){
+      return "none";
+    }else {
+      return 'navbar';
+    }
+  }
 }
