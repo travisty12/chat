@@ -17,12 +17,14 @@ export class DatabaseService {
   getThreads(board) {
     return this.database.object('boards/' + board);
   }
-  addReply(reply, thread, board, index) {
+  addReply(reply, threadNum, board, index) {
     this.boards.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         if (data[i]['$key'] == board) {
-          const replyString = `boards/${board}/threads/${thread}/replies`;
-          const replyLocation = this.database.list(`boards/${board}/threads/${thread}/replies`);
+          const replyString = `boards/${board}/threads/${threadNum}/replies`;
+          const replyLocation = this.database.list(`boards/${board}/threads/${threadNum}/replies`);
+          const thread = this.database.object(`boards/${board}/threads/${threadNum}/post`);
+          thread.update({recentTimestamp: reply.timestamp});
           console.log(reply);
 
           firebase.database().ref(replyString + '/' + index).set({
@@ -39,7 +41,6 @@ export class DatabaseService {
           // this.boards[i].threads[thread].replies.push(reply);
         }
       }
-      console.log(data[0]['$key']);
     })
     // console.log(this.boards.{board});
     // console.log(this.boards[board].threads.thread.replies);
@@ -53,12 +54,12 @@ export class DatabaseService {
           if (data[i]['$key'] == board) {
             const postString = `boards/${board}/threads/`;
             const postLocation = this.database.list(postString);
-
             firebase.database().ref(postString + '/' + index + '/post').set({
               'title': `${post.title}`,
               'comment': `${post.comment}`,
               'image': `${post.image}`,
               'timestamp': `${post.timestamp}`,
+              'recentTimestamp': `${post.recentTimestamp}`;
               'username': `${post.username}`
             });
             location.reload();
