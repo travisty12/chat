@@ -2,9 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForumComponent } from './forum/forum.component';
 import { LandingComponent } from './landing/landing.component';
-
 import { SplashComponent } from './splash/splash.component';
-
 import { BoardsComponent } from './boards/boards.component';
 
 
