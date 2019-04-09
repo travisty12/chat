@@ -4,6 +4,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LandingComponent } from './landing/landing.component';
 import { SplashComponent } from './splash/splash.component';
 import { BoardsComponent } from './boards/boards.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 const appRoutes: Routes = [
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
   {
     path: 'boards',
     component: BoardsComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   }
 ];
 
