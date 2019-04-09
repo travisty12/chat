@@ -22,6 +22,7 @@ export class ForumComponent implements OnInit {
 
   ngOnInit() {
     // this.threads = this.databaseService.getThreads('Music');
+    // this.getDate(1000000000000);
   }
   loadThread(thread) {
     this.replies = thread.replies;
@@ -55,6 +56,20 @@ export class ForumComponent implements OnInit {
     }
     return;
   }
+
+
+  getDate(time) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var d = new Date(time);
+    var month = d.getMonth();
+    var day = d.getDate();
+    var year = d.getFullYear();
+    let monthName = months[month];
+    let string = monthName + " " + day + ", " + year;
+    return string;
+  }
+
+
 
 
 }

@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { ForumComponent } from './forum/forum.component';
 import { ChatComponent } from './chat/chat.component';
 import { LandingComponent } from './landing/landing.component';
+import { BoardsComponent } from './boards/boards.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,7 +27,8 @@ export const firebaseConfig = {
     AppComponent,
     ForumComponent,
     ChatComponent,
-    LandingComponent
+    LandingComponent,
+    BoardsComponent
   ],
   imports: [
     BrowserModule,
