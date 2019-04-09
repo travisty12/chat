@@ -4,7 +4,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LandingComponent } from './landing/landing.component';
 import { SplashComponent } from './splash/splash.component';
 import { BoardsComponent } from './boards/boards.component';
-
+import { ChatComponent } from './chat/chat.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'forum',
     component: ForumComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   },
   {
     path: 'boards',
