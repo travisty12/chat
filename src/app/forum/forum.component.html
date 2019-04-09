@@ -24,7 +24,7 @@
     </div>
   </div>
   <div *ngIf="threadShown">
-    <div (click)="threadShown=!threadShown">Close</div>
+    <div (click)="threadShown=!threadShown; postThread = false;">Close</div>
     <div class="thread">
       <h2>{{activeThread.post.username}} | {{activeThread.post.timestamp}} | {{activeThread.post.title}}</h2>
       <h6 class="tagline">{{activeThread.post.comment}}</h6>
@@ -39,7 +39,7 @@
           <br>
           <textarea #postText></textarea>
         </div>
-        <button (click)="submitPost(postText.value, postName.value);postText.value=''">Submit</button>
+        <button (click)="submitPost(postText.value, postName.value, activeThread, activeBoard);postText.value='';postName.value=''">Submit</button>
       </div>
       <br>
       <div *ngFor="let reply of replies">
@@ -48,8 +48,19 @@
       </div>
     </div>
   </div>
-  <div>
-    <button (click)='newThread()'>+</button>
+  <div *ngIf="!threadShown">
+    <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
+    <div *ngIf="postThread">
+      <h3 (click)="postThread=!postThread">Close</h3>
+      <label>Your Name:</label>
+      <input #opName>
+      <label>Title:</label>
+      <input #opTitle>
+      <label>Reply:</label>
+      <br>
+      <textarea #opText></textarea>
+      <button (click)="newThread(opText.value, opName.value, opTitle.value, activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
 
+    </div>
   </div>
 </div>
