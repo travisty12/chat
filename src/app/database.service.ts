@@ -19,12 +19,15 @@ export class DatabaseService {
   getThreads(board) {
     return this.database.object('boards/' + board);
   }
-  addReply(reply, thread, board, index) {
+  addReply(reply, threadNum, board, index) {
     this.boards.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         if (data[i]['$key'] == board) {
-          const replyString = `boards/${board}/threads/${thread}/replies`;
-          const replyLocation = this.database.list(`boards/${board}/threads/${thread}/replies`);
+          const replyString = `boards/${board}/threads/${threadNum}/replies`;
+          const replyLocation = this.database.list(`boards/${board}/threads/${threadNum}/replies`);
+          const thread = this.database.object(`boards/${board}/threads/${threadNum}/post`);
+          thread.update({recentTimestamp: reply.timestamp});
+          console.log(reply);
 
           firebase.database().ref(replyString + '/' + index).set({
             'comment': `${reply.comment}`,
