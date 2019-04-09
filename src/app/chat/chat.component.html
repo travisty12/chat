@@ -1,3 +1,21 @@
 <div class="all">
   <app-navbar></app-navbar>
 </div>
+
+
+
+
+<div class="chat">
+  <div class="allMessages" *ngFor="let chat of chats | async">
+    <h4>{{chat.name}}</h4>
+    <h6>{{chat.time}}</h6>
+    <h3>{{chat.text}}</h3>
+  </div>
+  <div class="sendMessage">
+    <label>Name</label>
+    <input #userName>
+    <label>Message</label>
+    <input #userMessage>
+    <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value=''; userName.value='';">Send!</button>
+  </div>
+</div>

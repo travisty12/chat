@@ -12,7 +12,6 @@ export class BoardsComponent implements OnInit {
   threads: FirebaseListObservable<any[]>;
   replies: FirebaseListObservable<any[]>;
 
-
   constructor(private database: DatabaseService) { }
 
   ngOnInit() {
@@ -21,6 +20,10 @@ export class BoardsComponent implements OnInit {
   }
   loadBoard(board) {
     this.threads = board.threads;
+  }
+
+  loadChats(chat) {
+
   }
 
 }
