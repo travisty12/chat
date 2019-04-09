@@ -8,15 +8,18 @@ $salmonColor: #F26161;
   background-image: url('../../assets/img/background.jpg');
   background-size: cover;
   .navbar {
+    transition: 1s linear;
     width: 7%;
     height: 100%;
     .top {
+      transition: 1s linear;
       width: 100%;
       height: 50%;
       display: grid;
       background-color: $bgColor;
       img {
-        width: 40%;
+        transition: 1s linear;
+        width: 25px;
         justify-self: center;
         margin-top: 20px;
         &:hover {
@@ -29,5 +32,34 @@ $salmonColor: #F26161;
       width: 100%;
       background-color: $salmonColor;
     }
+  }
+}
+
+.extended {
+  transition: 1s linear;
+  width: 25%;
+  height: 100%;
+  .top {
+    transition: 1s linear;
+    width: 100%;
+    height: 90%;
+    display: grid;
+    background-color: $bgColor;
+    img {
+      transition: 1s linear;
+      width: 25px;
+      justify-self: flex-start;
+      margin-top: 20px;
+      margin-left: 20px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .bottom {
+    transition: 1s linear;
+    height: 10%;
+    width: 100%;
+    background-color: $salmonColor;
   }
 }
