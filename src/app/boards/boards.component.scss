@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  margin-top: 25px;
+  // padding: 20px;
+  width: 40vw;
+  height: 90vh;
+  background-color: lightgrey;
+  h1 {
+    text-align: center;
+  }
+  h5 {
+    text-align: center;
+  }
+  .admin {
+    text-align: center;
+  }
+}
+
+.navbar-header {
+  h1 {
+    color:#BBF35B
+  }
+}
+
+.admin {
+  color: salmon;
+}
