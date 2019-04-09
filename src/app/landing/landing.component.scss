@@ -11,6 +11,7 @@ $salmonColor: #F26161;
     position: fixed;
     transition: 1s linear;
     width: 7%;
+    min-width: 90px;
     height: 100%;
     .top {
       transition: 1s linear;
@@ -42,6 +43,7 @@ $salmonColor: #F26161;
   transition: 1s linear;
   width: 30%;
   height: 100%;
+  min-width: 350px;
   position: fixed;
   .top {
     transition: 1s linear;
