@@ -3,6 +3,7 @@ import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Reply } from '../reply.model';
 import { Post } from '../post.model';
+import { cleanInput, sanitize } from '../sanitize.ts';
 
 @Component({
   selector: 'app-forum',
@@ -29,7 +30,10 @@ export class ForumComponent implements OnInit {
   }
 
   newThread(text: string, name: string, title: string, board) {
-    const image = "image goes here";
+    const image = sanitize("image goes here");
+    text = sanitize(text);
+    name = sanitize(name);
+    title = sanitize(title);
     const post = new Post(title, name, text, image);
     const boardName = board['$key'];
     const i = this.threads.length;
@@ -38,7 +42,9 @@ export class ForumComponent implements OnInit {
   }
 
   submitPost(text: string, name: string, thread, board) {
-    const image = "image goes here";
+    const image = sanitize("image goes here");
+    text = sanitize(text);
+    name = sanitize(name);
     this.a = this.replies;
     let i;
     if (this.a) {
