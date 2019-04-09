@@ -1,0 +1,73 @@
+.all {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-image: url('../../assets/img/background.jpg');
+  background-size: cover;
+}
+
+
+
+.animated {
+   background-image: url(/css/images/logo.png);
+   background-repeat: no-repeat;
+   background-position: left top;
+   // padding-top:95px;
+   // margin-bottom:60px;
+   -webkit-animation-duration: 6s;animation-duration: 6s;
+   -webkit-animation-fill-mode: both;animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes fadeOut {
+     0% {opacity: 1;}
+     100% {opacity: 0;}
+  }
+
+  @keyframes fadeOut {
+     0% {opacity: 1;}
+     100% {opacity: 0;}
+  }
+
+  .fadeOut {
+     -webkit-animation-name: fadeOut;
+     animation-name: fadeOut;
+  }
+
+  .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.5s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+.pill {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+img {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+
+.swing:hover
+{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+}
