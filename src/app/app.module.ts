@@ -11,12 +11,9 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { ForumComponent } from './forum/forum.component';
 import { ChatComponent } from './chat/chat.component';
-import { LandingComponent } from './landing/landing.component';
-<<<<<<< HEAD
+import { LandingComponent } from './landing/landing.component'
 import { SplashComponent } from './splash/splash.component';
-=======
 import { BoardsComponent } from './boards/boards.component';
->>>>>>> master
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -32,11 +29,9 @@ export const firebaseConfig = {
     ForumComponent,
     ChatComponent,
     LandingComponent,
-<<<<<<< HEAD
-    SplashComponent
-=======
+    SplashComponent,
     BoardsComponent
->>>>>>> master
+
   ],
   imports: [
     BrowserModule,
