@@ -12,6 +12,7 @@ export class BoardsComponent implements OnInit {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   replies: FirebaseListObservable<any[]>;
+  threadShown = false;
 
   constructor(private database: DatabaseService) { }
 
