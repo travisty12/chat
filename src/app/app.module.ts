@@ -11,7 +11,8 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { ForumComponent } from './forum/forum.component';
 import { ChatComponent } from './chat/chat.component';
-import { LandingComponent } from './landing/landing.component';
+import { LandingComponent } from './landing/landing.component'
+import { SplashComponent } from './splash/splash.component';
 import { BoardsComponent } from './boards/boards.component';
 
 export const firebaseConfig = {
@@ -28,7 +29,9 @@ export const firebaseConfig = {
     ForumComponent,
     ChatComponent,
     LandingComponent,
+    SplashComponent,
     BoardsComponent
+
   ],
   imports: [
     BrowserModule,
