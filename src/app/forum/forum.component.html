@@ -19,14 +19,14 @@
     <div *ngFor="let thread of threads">
       <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
         <h3>{{thread.post.title}}</h3>
-        <p>{{thread.post.content}}</p>
+        <p>{{thread.post.comment}}</p>
       </div>
     </div>
   </div>
   <div *ngIf="threadShown">
     <div class="thread" (click)="threadShown=!threadShown">
-      <h2>{{activeThread.post.title}}</h2>
-      <h6 class="tagline">{{activeThread.post.content}}</h6>
+      <h2>{{activeThread.post.username}} | {{activeThread.post.timestamp}} | {{activeThread.post.title}}</h2>
+      <h6 class="tagline">{{activeThread.post.comment}}</h6>
       <br>
       <!-- <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5>
       <div *ngIf="postReply">
@@ -40,8 +40,8 @@
       </div> -->
       <br>
       <div *ngFor="let reply of replies">
-        <p class='userName'>randomUser</p>
-        <p class="reply">{{reply}}</p>
+        <p class='userName'>{{reply.username}} | {{reply.timestamp}}</p>
+        <p class="reply">{{reply.comment}}</p>
       </div>
     </div>
   </div>

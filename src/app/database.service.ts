@@ -6,13 +6,13 @@ export class DatabaseService {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   constructor(private database: AngularFireDatabase) {
-    this.boards = database.list('Boards');
+    this.boards = database.list('boards');
   }
 
   getBoards() {
     return this.boards;
   }
   getThreads(board) {
-    return this.database.object('Boards/' + board);
+    return this.database.object('boards/' + board);
   }
 }
