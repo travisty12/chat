@@ -84,15 +84,17 @@ export class DatabaseService {
       firebase.database().ref(`chat/anonymous/${i}`).set({
         'text': `${reply.text}`,
         'name': `${reply.name}`,
-        'time': `${reply.timestamp}`
+        'time': `${reply.time}`,
+        'timestamp': `${reply.timestamp}`
       });
-      console.log("in");
+
       location.reload();
+
     })
     return;
   }
   getChatById(chatId: string){
-  return this.database.object(`chat/anonymous/${chatId}`;
+  return this.database.object(`chat/anonymous/${chatId}`);
 }
 
   deleteChat(chat, info) {
@@ -103,14 +105,10 @@ export class DatabaseService {
     console.log(info);
     const length = info.length;
     console.log(length);
-    id.update({$key: "1000"});
+    // id.update({$key: "1000"});
     // for(let i = 0; i < length; i++) {
     //
     // }
 
-  }
 
-  deletePost() {
-
-  }
 }
