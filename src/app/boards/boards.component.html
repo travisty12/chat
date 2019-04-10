@@ -15,7 +15,7 @@
           <div *ngFor="let thread of threads">
             <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
               <h3>{{thread.post.title}}</h3>
-              <p>{{thread.post.comment}}</p>
+              <h4>{{thread.post.comment}}</h4>
             </div>
           </div>
         </div>
