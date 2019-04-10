@@ -1,7 +1,10 @@
 <div class="all">
-  <div class="navbar"  [class]='menu()'>
+  <div class="bar navbar" [class]='menu()'>
     <div class="top">
-      <img (click)="extendMenu = !extendMenu" src="../../assets/icons/salmonMenu.png" alt="">
+      <div class="logo">
+        <img (click)="extendMenu = !extendMenu" src="../../assets/icons/dots.png" alt="">
+        <h1 (click)="extendMenu = !extendMenu">MENU</h1>
+      </div>
       <div class="text">
         <h1 (click)="toChat()">CHAT</h1>
         <h1 (click)='toForum()'>FORUM</h1>

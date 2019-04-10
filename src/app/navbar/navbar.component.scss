@@ -1,6 +1,21 @@
 $bgColor: #404040;
 $salmonColor: #F26161;
-
+$orangeColor: #f39D5B;
+$purpleColor: #925BF3;
+$greenColor: #BBF35B;
+$seaGreenColor: #5BF3C8;
+.logo {
+  h1 {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    padding: 0;
+    margin-left: 26px;
+    color: $seaGreenColor;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
 .all {
   position: absolute;
   top: 0;
@@ -15,8 +30,8 @@ $salmonColor: #F26161;
       display: grid;
       background-color: $bgColor;
       img {
-        width: 25px;
-        margin-left: 32px;
+        width: 10px;
+        margin-left: 40px;
         margin-top: 20px;
         &:hover {
           cursor: pointer;
@@ -26,7 +41,7 @@ $salmonColor: #F26161;
     .bottom {
       height: 50%;
       width: 100%;
-      background-color: $salmonColor;
+      background-color: $seaGreenColor;
     }
 
   }
@@ -56,7 +71,7 @@ $salmonColor: #F26161;
       h1 {
         transition: .3s linear;
         font-size: 50px;
-        color: $salmonColor;
+        color: $seaGreenColor;
         &:hover {
           cursor: pointer;
           margin-left: 10px;
@@ -65,6 +80,81 @@ $salmonColor: #F26161;
           box-shadow: 0px 0px 10px;
         }
       }
+    }
+  }
+}
+
+.purple {
+  &>div{
+    .logo{
+      h1 {
+        color: $purpleColor;
+      }
+    }
+    .top{
+      .text{
+        h1 {
+          color: $purpleColor;
+          &:hover {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0px 0px 10px;
+          }
+        }
+      }
+    }
+    .bottom{
+      background-color: $purpleColor;
+    }
+  }
+}
+
+.green{
+  &>div{
+    .logo{
+      h1 {
+        color: $greenColor;
+      }
+    }
+    .top{
+      .text{
+        h1 {
+          color: $greenColor;
+          &:hover {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0px 0px 10px;
+          }
+        }
+      }
+    }
+    .bottom{
+      background-color: $greenColor;
+    }
+  }
+}
+
+.orange {
+  &>div{
+    .logo{
+      h1 {
+        color: $orangeColor;    
+      }
+    }
+    .top{
+      .text{
+        h1 {
+          color: $orangeColor;
+          &:hover {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            box-shadow: 0px 0px 10px;
+          }
+        }
+      }
+    }
+    .bottom{
+      background-color: $orangeColor;
     }
   }
 }
