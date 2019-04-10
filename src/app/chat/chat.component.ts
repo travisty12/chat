@@ -54,7 +54,6 @@ export class ChatComponent implements OnInit {
   deleteThisMessage(chat) {
     this.chats.subscribe(info => {
       this.b = info;
-    })
     this.databaseService.deleteChat(chat, this.b);
     let length = this.b.length;
     var last = this.b[length - 1];

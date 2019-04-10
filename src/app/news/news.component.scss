@@ -14,3 +14,41 @@ h1 {
   text-align: center;
   color: #F39D5B;
 }
+
+
+
+
+
+.news {
+  margin-left: 100px;
+}
+
+.news{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  border-radius: 25px;
+  border: 2px solid #BBF35B;
+  margin-top: 25px;
+  // padding: 20px;
+  width: 40vw;
+  height: 90vh;
+  // background-image: url("../../assets/img/chatBack.gif");
+  // background-color: lightgrey;
+  color: #BBF35B;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+  .allMessages {
+    margin-left: 10px;
+  }
+  h3 {
+    text-align: center;
+  }
+  h4 {
+    margin-bottom: auto;
+    text-align: center;
+  }
+}
