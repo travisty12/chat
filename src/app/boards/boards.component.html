@@ -15,14 +15,14 @@
           <div *ngFor="let thread of threads">
             <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
               <h3>{{thread.post.title}}</h3>
-              <p>{{thread.post.comment}}</p>
+              <h4>{{thread.post.comment}}</h4>
             </div>
           </div>
         </div>
         <div *ngIf="threadShown">
           <div (click)="threadShown=!threadShown; postThread = false; postReply=false;">Close</div>
           <div class="thread">
-            <h2>{{activeThread.post.username}} | {{activeThread.post.timestamp}} | {{activeThread.post.title}}</h2>
+            <h2>{{activeThread.post.username}} | {{activeThread.post.time}} | {{activeThread.post.title}}</h2>
             <h6 class="tagline">{{activeThread.post.comment}}</h6>
             <br>
             <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5>
@@ -39,7 +39,7 @@
             </div>
             <br>
             <div *ngFor="let reply of replies">
-              <p class='userName'>{{reply.username}} | {{reply.timestamp}}</p>
+              <p class='userName'>{{reply.username}} | {{reply.time}}</p>
               <p class="reply">{{reply.comment}}</p>
             </div>
           </div>
@@ -55,7 +55,7 @@
             <label>Reply:</label>
             <br>
             <textarea #opText></textarea>
-            <button (click)="newThread(opText.value, opName.value, opTitle.value, activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
+            <button (click)="postThread=false;newThread(opText.value, opName.value, opTitle.value, activeBoard);loadBoard(activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
 
             </div>
           </div>
