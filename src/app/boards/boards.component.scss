@@ -51,7 +51,7 @@
 
 .boardTotal {
 height: 100%;
-  h6 {
+  h3 {
     margin-left: 0px;
     text-align: left;
     color: #878685;
@@ -73,30 +73,23 @@ h6 {
   color: black;
 }
 
-h5 {
-  border: 1px black solid;
-  color: grey;
-}
+
 
 h4 {
-  color: red;
-
-}
-
-h3 {
-  border: 1px dotted black;
-  text-decoration: underline;
   color: grey;
+
 }
-//
-// p {
-//   color: blue;
-// }
+
+
 
 .thread {
   p {
-    border: 1px dotted green;
+    border: 1px dotted black;
     color: #666564;
-
+  }
+  h5 {
+    border: 1px solid black;
+    text-decoration: underline;
+    color: blue;
   }
 }
