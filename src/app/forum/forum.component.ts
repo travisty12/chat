@@ -3,7 +3,7 @@ import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Reply } from '../reply.model';
 import { Post } from '../post.model';
-import { cleanInput, sanitize } from '../sanitize.ts';
+import { cleanInput, sanitize } from '../sanitize';
 
 @Component({
   selector: 'app-forum',
