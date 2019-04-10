@@ -36,10 +36,6 @@ export class BoardsComponent implements OnInit {
       return 'navbar';
     }
   }
-  replies: FirebaseListObservable<any[]>;
-  @Input() activeBoard;
-  @Input() threadShown;
-  @Input() threads;
   a;
   postThread = false;
 
@@ -62,7 +58,11 @@ export class BoardsComponent implements OnInit {
   submitPost(text: string, name: string, thread, board) {
     const image = sanitize("image goes here");
     text = sanitize(text);
-    name = sanitize(name);
+    if (name != "") {
+      name = sanitize(name);
+    } else {
+      name = "Anonymous";
+    }
     this.a = this.replies;
     let i;
     if (this.a) {

@@ -15,7 +15,7 @@ export class DatabaseService {
 
   }
 
-  checkPass(pass) {
+  checkAuth(pass) {
 
   }
   getBoards() {
