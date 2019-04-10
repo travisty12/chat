@@ -20,7 +20,6 @@ export class NewsComponent implements OnInit {
     this.api.callApi().subscribe(response => {
       // this.info = response.json()
       that.obj = response.json();
-      console.log(that.obj);
       this.gatherInfo();
     });
   }
@@ -28,10 +27,8 @@ export class NewsComponent implements OnInit {
 
 
   gatherInfo() {
-    console.log("Is working");
     let length = this.obj.articles.length;
     let array = [];
-    console.log(length);
     for(let i = 0; i < length; i++) {
       let info = {};
       let instance = this.obj.articles[i];
@@ -41,7 +38,6 @@ export class NewsComponent implements OnInit {
       let title = instance.title;
       let url = instance.url;
       let image = instance.urlToImage;
-      console.log(author);
       info = {author: author, content: content, description: description, title: title, url: url, image: image};
       array.push([info]);
     }

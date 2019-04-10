@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [DatabaseService]
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private database: DatabaseService, private router: Router) { }
 
   ngOnInit() {
-    this.style = document.getElementsByClassName('all')
-    console.log(this.style[0]);
+    this.style = document.getElementsByClassName('all');
   }
+  loginShown = false;
   style;
   extendMenu;
 
@@ -38,5 +40,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['news']);
     this.extendMenu = false;
     this.style[0].classList = 'all orange'
+  }
+  checkAuth(pass) {
+    this.database.checkAuth(pass);
+    this.loginShown = false;
+    return;
   }
 }

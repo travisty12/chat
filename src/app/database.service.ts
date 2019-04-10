@@ -12,8 +12,12 @@ export class DatabaseService {
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
     this.chat = database.list('chat/anonymous');
+    
   }
 
+  checkPass(pass) {
+
+  }
   getBoards() {
     return this.boards;
   }
