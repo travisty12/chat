@@ -36,10 +36,8 @@ export class BoardsComponent implements OnInit {
       return 'navbar';
     }
   }
-  replies: FirebaseListObservable<any[]>;
   @Input() activeBoard;
-  @Input() threadShown;
-  @Input() threads;
+
   a;
   postThread = false;
 
