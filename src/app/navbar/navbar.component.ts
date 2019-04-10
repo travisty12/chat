@@ -21,4 +21,16 @@ export class NavbarComponent implements OnInit {
       return 'navbar';
     }
   }
+  toChat(){
+    this.router.navigate(['chat']);
+    this.extendMenu = false;
+  }
+  toForum(){
+    this.router.navigate(['boards']);
+    this.extendMenu = false;
+  }
+  toNews(){
+    this.router.navigate(['news']);
+    this.extendMenu = false;
+  }
 }
