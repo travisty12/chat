@@ -9,6 +9,7 @@ export class DatabaseService {
   threads: FirebaseListObservable<any[]>;
   chat: FirebaseListObservable<any[]>;
   a;
+  chatLength;
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
     this.chat = database.list('chat/anonymous');
@@ -122,23 +123,58 @@ export class DatabaseService {
   }
 
 
+  removeChat(id) {
+    id.remove();
+  }
+
 
   autoDeleteChat(info) {
-    console.log(info);
     let currentTime = Date.now();
-    let hour = currentTime - 6000;
+    let hour = currentTime - 20000;
     console.log(currentTime);
     let length = info.length;
-    console.log(length);
+    let array = [];
     for(let i = 0; i < length; i++) {
+      let selected = [];
       let time = info[i].timestamp;
       if(time < hour) {
-        let id = this.getChatById(info[i].$key);
-        console.log("IS Less than");
-        console.log(id);
-        console.log(info[i].$key);
-        this.deleteChat(id, info);
+        array.push(i);
       }
+    }
+    for(let e = 0; e < array.length; e++) {
+      this.reAssign(info);
+      let id = this.getChatById(info[e].$key);
+      this.removeChat(id);
+
+    }
+  }
+
+  reAssign(info) {
+    let length = info.length;
+    let last = this.getChatById(info[length - 1].$key);
+    for(let i = 0; i < length; i++) {
+      let id = this.getChatById(info[i].$key);
+      let a = i;
+      let currentInfo = info[a];
+      let nextname;
+      let nextText;
+      let nextTime;
+      let nextTimeStamp;
+      if(currentInfo) {
+        nextname = currentInfo.name;
+        nextText = currentInfo.text
+        nextTime = currentInfo.time;
+        nextTimeStamp = currentInfo.timestamp;
+        let id = this.getChatById(info[i].$key);
+        this.deleteChat(id, info);
+
+      }
+      firebase.database().ref(`chat/anonymous/${i}`).set({
+        'text': `${nextText}`,
+        'name': `${nextname}`,
+        'time': `${nextTime}`,
+        'timestamp': `${nextTimeStamp}`
+      });
     }
   }
 }
