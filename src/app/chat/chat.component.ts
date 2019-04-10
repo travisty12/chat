@@ -15,6 +15,7 @@ export class ChatComponent implements OnInit {
   messages: FirebaseListObservable<any[]>;
   @Input() allChats;
   a;
+  b;
   constructor(private databaseService: DatabaseService) { }
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class ChatComponent implements OnInit {
 
   sendMessage(message: string, name: string) {
     let user;
+    let that = this;
     name = sanitize(name);
     if (name != "") {
       user = name;
@@ -30,7 +32,7 @@ export class ChatComponent implements OnInit {
       user = "Anonymous";
     }
     this.chats.subscribe(info => {
-      this.a = info;
+      that.a = info;
     })
     let i;
     if(this.a) {
@@ -46,5 +48,15 @@ export class ChatComponent implements OnInit {
     this.databaseService.addMessage(reply, i);
     return;
 
+  }
+
+
+  deleteThisMessage(chat) {
+    this.chats.subscribe(info => {
+      this.b = info;
+    this.databaseService.deleteChat(chat, this.b);
+    let length = this.b.length;
+    var last = this.b[length - 1];
+    this.databaseService.deleteLastChat(last);
   }
 }

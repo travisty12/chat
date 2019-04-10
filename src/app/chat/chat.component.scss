@@ -17,7 +17,13 @@
   background-image: url("../../assets/img/chatBack.gif");
 background-size: cover;
   color: #BBF35B;
-  overflow: scroll;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+  .allMessages {
+    margin-left: 10px;
+  }
   h3 {
     text-align: center;
   }
