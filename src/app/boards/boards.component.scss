@@ -9,24 +9,44 @@
   // padding: 20px;
   width: 40vw;
   height: 90vh;
-  background-color: lightgrey;
+  background-image: url("../../assets/img/pop.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+
   h1 {
     text-align: center;
+    color: green;
   }
+
   h5 {
     text-align: center;
+    color: black;
   }
-  .admin {
-    text-align: center;
-  }
+  // .admin {
+  //   text-align: center;
+  // }
 }
-
-.navbar-header {
-  h1 {
-    color:#BBF35B
-  }
-}
+//
+// .navbar-header {
+//   h1 {
+//     color: black;
+//   }
+// }
 
 .admin {
   color: salmon;
+}
+
+.forumInfo {
+
+}
+
+.body {
+  // background: black;
+  height: 90%;
+  app-forum{
+    height: 100%;
+  }
 }
