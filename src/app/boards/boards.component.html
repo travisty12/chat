@@ -25,7 +25,6 @@
             <h2>{{activeThread.post.username}} | {{activeThread.post.time}} | {{activeThread.post.title}}</h2>
             <h3 class="tagline">{{activeThread.post.comment}}</h3>
             <br>
-            <!-- <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5> -->
             <div *ngIf="postReply">
               <p (click)="postReply=false">Close</p>
               <div>
