@@ -6,34 +6,24 @@
   border-radius: 25px;
   border: 2px solid #73AD21;
   margin-top: 25px;
-  // padding: 20px;
   width: 40vw;
   height: 90vh;
   background-image: url("../../assets/img/pop.gif");
   background-repeat: no-repeat;
   background-position: center;
 
-
-
   h1 {
+    margin-top: 60px;
     text-align: center;
-    color: green;
+    color: #73AD21;
   }
 
   h5 {
     text-align: center;
     color: black;
   }
-  // .admin {
-  //   text-align: center;
-  // }
+
 }
-//
-// .navbar-header {
-//   h1 {
-//     color: black;
-//   }
-// }
 
 .admin {
   color: salmon;
@@ -49,4 +39,37 @@
   app-forum{
     height: 100%;
   }
+}
+
+.boardTotal {
+height: 100%;
+  p {
+    text-align: center;
+    color: #F39D5B;
+
+  }
+}
+
+.forumWork {
+  background-color: lightgrey;
+  height: 100%;
+
+}
+
+h6 {
+  color: yellow;
+}
+
+h5 {
+  color: green;
+}
+
+h4 {
+  color: red;
+}
+
+h3 {
+  margin-left: 20px;
+  text-decoration: underline;
+  color: blue;
 }
