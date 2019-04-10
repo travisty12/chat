@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Message } from '../message.model';
+import { cleanInput, sanitize } from '../sanitize';
 
 @Component({
   selector: 'app-chat',
@@ -22,6 +23,7 @@ export class ChatComponent implements OnInit {
 
   sendMessage(message: string, name: string) {
     let user;
+    name = sanitize(name);
     if (name != "") {
       user = name;
     } else {
@@ -36,9 +38,7 @@ export class ChatComponent implements OnInit {
     } else {
       i = 0;
     }
-    console.log(i);
-    const reply = new Message(message, user);
-    console.log(reply);
+    const reply = new Message(sanitize(message), user);
     // for (let j = 0; j < this.a.length; j++) {
     //   const messageIndex = j;
     //   console.log("IS working");
@@ -46,8 +46,5 @@ export class ChatComponent implements OnInit {
     this.databaseService.addMessage(reply, i);
     return;
 
-
   }
-
-
 }

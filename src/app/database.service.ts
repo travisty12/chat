@@ -36,7 +36,7 @@ export class DatabaseService {
             'username': `${reply.username}`
           });
           location.reload();
-          return;
+          // return;
 
 
           // replyLocation.push(reply);
@@ -83,12 +83,22 @@ export class DatabaseService {
       firebase.database().ref(`chat/anonymous/${i}`).set({
         'text': `${reply.text}`,
         'name': `${reply.name}`,
-        'time': `${reply.timestamp}`
+        'time': `${reply.time}`,
+        'timestamp': `${reply.timestamp}`
       });
-      console.log("in");
-      location.reload()
+
+      location.reload();
 
     })
     return;
+  }
+
+
+  deleteChat() {
+
+  }
+
+  deletePost() {
+
   }
 }
