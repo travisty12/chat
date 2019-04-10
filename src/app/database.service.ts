@@ -32,7 +32,6 @@ export class DatabaseService {
           const replyLocation = this.database.list(`boards/${board}/threads/${threadNum}/replies`);
           const thread = this.database.object(`boards/${board}/threads/${threadNum}/post`);
           thread.update({recentTimestamp: reply.timestamp});
-          console.log(reply);
 
           firebase.database().ref(replyString + '/' + index).set({
             'comment': `${reply.comment}`,
@@ -49,8 +48,6 @@ export class DatabaseService {
         }
       }
     })
-    // console.log(this.boards.{board});
-    // console.log(this.boards[board].threads.thread.replies);
     // this.boards.board.threads.thread.replies.push();
   }
 
@@ -122,8 +119,16 @@ export class DatabaseService {
   }
 
   deleteLastChat(last) {
-    console.log(last);
     var chatEntryInFirebase = this.getChatById(last.$key);
     chatEntryInFirebase.remove();
+  }
+
+
+  autoDeleteChat(info) {
+    console.log(info);
+    let currentTime = Date.now();
+    let hour = currentTime - 3600000;
+    let length = info.length;
+    console.log(length);
   }
 }
