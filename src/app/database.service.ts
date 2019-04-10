@@ -130,8 +130,7 @@ export class DatabaseService {
 
   autoDeleteChat(info) {
     let currentTime = Date.now();
-    let hour = currentTime - 20000;
-    console.log(currentTime);
+    let hour = currentTime - 3600000;
     let length = info.length;
     let array = [];
     for(let i = 0; i < length; i++) {

@@ -25,9 +25,7 @@ export class ChatComponent implements OnInit {
   }
 
   main() {
-    console.log("Is WOrking");
     setInterval(() => {
-      console.log("Is Working");
       this.autoDeleteMessage();
     },6000)
 
