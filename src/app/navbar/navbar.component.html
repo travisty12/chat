@@ -3,9 +3,9 @@
     <div class="top">
       <img (click)="extendMenu = !extendMenu" src="../../assets/icons/salmonMenu.png" alt="">
       <div class="text">
-        <h1 routerLink='../chat'>CHAT</h1>
-        <h1 routerLink='../boards'>FORUM</h1>
-        <h1 routerLink='../news'>NEWS</h1>
+        <h1 (click)="toChat()">CHAT</h1>
+        <h1 (click)='toForum()'>FORUM</h1>
+        <h1 (click)='toNews()'>NEWS</h1>
       </div>
     </div>
     <div class="mid"></div>
