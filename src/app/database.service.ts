@@ -103,7 +103,7 @@ export class DatabaseService {
     console.log(info);
     const length = info.length;
     console.log(length);
-    // id.update({$key: "1000"});
+    id.update({$key: "1000"});
     // for(let i = 0; i < length; i++) {
     //
     // }
