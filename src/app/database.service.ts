@@ -121,9 +121,6 @@ export class DatabaseService {
     chatEntryInFirebase.remove();
   }
 
-  // deleteChat(id) {
-  //   id.remove();
-  // }
 
 
   autoDeleteChat(info) {
