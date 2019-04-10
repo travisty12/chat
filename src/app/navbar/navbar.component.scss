@@ -5,15 +5,19 @@ $purpleColor: #925BF3;
 $greenColor: #BBF35B;
 $seaGreenColor: #5BF3C8;
 .logo {
+  color: $seaGreenColor;
+  transition: .3s linear;
   h1 {
     writing-mode: vertical-rl;
     text-orientation: upright;
     padding: 0;
     margin-left: 26px;
-    color: $seaGreenColor;
     &:hover {
       cursor: pointer;
     }
+  }
+  &:hover {
+    box-shadow: 0px 0px 10px;
   }
 }
 .all {
@@ -103,9 +107,8 @@ $seaGreenColor: #5BF3C8;
 .purple {
   &>div{
     .logo{
-      h1 {
-        color: $purpleColor;
-      }
+      transition: 1s linear;
+      color: $purpleColor;
     }
     .top{
       .text{
@@ -120,6 +123,7 @@ $seaGreenColor: #5BF3C8;
       }
     }
     .bottom{
+      transition: 1s linear;
       background-color: $purpleColor;
     }
   }
@@ -128,9 +132,8 @@ $seaGreenColor: #5BF3C8;
 .green{
   &>div{
     .logo{
-      h1 {
-        color: $greenColor;
-      }
+      transition: 1s linear;
+      color: $greenColor;
     }
     .top{
       .text{
@@ -145,6 +148,7 @@ $seaGreenColor: #5BF3C8;
       }
     }
     .bottom{
+      transition: 1s linear;
       background-color: $greenColor;
     }
   }
@@ -153,9 +157,8 @@ $seaGreenColor: #5BF3C8;
 .orange {
   &>div{
     .logo{
-      h1 {
-        color: $orangeColor;
-      }
+      transition: 1s linear;
+      color: $orangeColor;
     }
     .top{
       .text{
@@ -170,6 +173,7 @@ $seaGreenColor: #5BF3C8;
       }
     }
     .bottom{
+      transition: 1s linear;
       background-color: $orangeColor;
     }
   }
