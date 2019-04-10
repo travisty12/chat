@@ -83,9 +83,9 @@ export class DatabaseService {
       firebase.database().ref(`chat/anonymous/${i}`).set({
         'text': `${reply.text}`,
         'name': `${reply.name}`,
-        'time': `${reply.timestamp}`
+        'time': `${reply.time}`,
+        'timestamp': `${reply.timestamp}`
       });
-      console.log("in");
       location.reload();
     })
     return;
@@ -93,7 +93,7 @@ export class DatabaseService {
 
 
   deleteChat() {
-    
+
   }
 
   deletePost() {
