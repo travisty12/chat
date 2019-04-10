@@ -46,8 +46,5 @@ export class ChatComponent implements OnInit {
     this.databaseService.addMessage(reply, i);
     return;
 
-
   }
-
-
 }

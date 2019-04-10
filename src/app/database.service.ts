@@ -36,7 +36,7 @@ export class DatabaseService {
             'username': `${reply.username}`
           });
           location.reload();
-          return;
+          // return;
 
 
           // replyLocation.push(reply);
@@ -86,7 +86,17 @@ export class DatabaseService {
         'time': `${reply.timestamp}`
       });
       console.log("in");
+      location.reload();
     })
     return;
+  }
+
+
+  deleteChat() {
+    
+  }
+
+  deletePost() {
+
   }
 }
