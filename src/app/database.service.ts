@@ -36,6 +36,7 @@ export class DatabaseService {
           firebase.database().ref(replyString + '/' + index).set({
             'comment': `${reply.comment}`,
             'image': `${reply.image}`,
+            'time': `${reply.time}`,
             'timestamp': `${reply.timestamp}`,
             'username': `${reply.username}`
           });
@@ -53,27 +54,29 @@ export class DatabaseService {
 
 
   addThread(post, board, index) {
-    this.boards.subscribe(data => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i]['$key'] == board) {
-          const postString = `boards/${board}/threads/`;
-          const postLocation = this.database.list(postString);
+    const postString = `boards/${board}/threads/`;
 
-          firebase.database().ref(postString + '/' + index + '/post').set({
-            'title': `${post.title}`,
-            'comment': `${post.comment}`,
-            'image': `${post.image}`,
-            'timestamp': `${post.timestamp}`,
-            'username': `${post.username}`
-          });
-          return;
-
-
-          // replyLocation.push(reply);
-          // this.boards[i].threads[thread].replies.push(reply);
-        }
-      }
-    })
+    // this.boards.subscribe(data => {
+    //   for (let i = 0; i < data.length; i++) {
+    //     if (data[i]['$key'] == board) {
+    //
+    //
+    //
+    //       // replyLocation.push(reply);
+    //       // this.boards[i].threads[thread].replies.push(reply);
+    //     }
+    //   }
+    // })
+    const postLocation = this.database.list(postString);
+    firebase.database().ref(postString + '/' + index + '/post').set({
+      'title': `${post.title}`,
+      'comment': `${post.comment}`,
+      'image': `${post.image}`,
+      'time': `${post.time}`,
+      'timestamp': `${post.timestamp}`,
+      'username': `${post.username}`
+    });
+    return;
   }
 
   getChat() {
@@ -118,15 +121,12 @@ export class DatabaseService {
     chatEntryInFirebase.remove();
   }
 
-  deleteChat1(id) {
-    id.remove();
-  }
 
 
   autoDeleteChat(info) {
     console.log(info);
     let currentTime = Date.now();
-    let hour = currentTime - 3600000;
+    let hour = currentTime - 6000;
     console.log(currentTime);
     let length = info.length;
     console.log(length);
@@ -137,7 +137,7 @@ export class DatabaseService {
         console.log("IS Less than");
         console.log(id);
         console.log(info[i].$key);
-        this.deleteChat(id);
+        this.deleteChat(id, info);
       }
     }
   }

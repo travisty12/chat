@@ -29,7 +29,7 @@ export class ChatComponent implements OnInit {
     setInterval(() => {
       console.log("Is Working");
       this.autoDeleteMessage();
-    },360000)
+    },6000)
 
   }
 
