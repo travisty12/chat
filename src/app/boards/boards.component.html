@@ -7,6 +7,60 @@
       <div class="forumInfo">
         <h5 *ngFor="let board of boards | async" (click)="activeBoard =board;loadBoard(board);threadShown=false">{{board['$key']}}</h5>
       </div>
+      <div class="boardTotal">
+      <div class = "forumWork" *ngIf="activeBoard">
+        <div *ngIf="!threadShown">
+
+          <br>
+          <div *ngFor="let thread of threads">
+            <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
+              <h3>{{thread.post.title}}</h3>
+              <p>{{thread.post.comment}}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="threadShown">
+          <div (click)="threadShown=!threadShown; postThread = false; postReply=false;">Close</div>
+          <div class="thread">
+            <h2>{{activeThread.post.username}} | {{activeThread.post.timestamp}} | {{activeThread.post.title}}</h2>
+            <h6 class="tagline">{{activeThread.post.comment}}</h6>
+            <br>
+            <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5>
+            <div *ngIf="postReply">
+              <p (click)="postReply=false">Close</p>
+              <div>
+                <label>Your Name:</label>
+                <input #postName>
+                <label>Reply:</label>
+                <br>
+                <textarea #postText></textarea>
+              </div>
+              <button (click)="submitPost(postText.value, postName.value, activeThread, activeBoard);postText.value='';postName.value=''">Submit</button>
+            </div>
+            <br>
+            <div *ngFor="let reply of replies">
+              <p class='userName'>{{reply.username}} | {{reply.timestamp}}</p>
+              <p class="reply">{{reply.comment}}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!threadShown">
+          <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
+          <div *ngIf="postThread">
+            <h3 (click)="postThread=!postThread">Close</h3>
+            <label>Your Name:</label>
+            <input #opName>
+            <label>Title:</label>
+            <input #opTitle>
+            <label>Reply:</label>
+            <br>
+            <textarea #opText></textarea>
+            <button (click)="newThread(opText.value, opName.value, opTitle.value, activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="admin">
       <!-- <a class="text-muted" routerLink="admin">Admin</a> -->
