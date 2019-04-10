@@ -130,7 +130,7 @@ export class DatabaseService {
 
   autoDeleteChat(info) {
     let currentTime = Date.now();
-    let hour = currentTime - 6000;
+    let hour = currentTime - 20000;
     console.log(currentTime);
     let length = info.length;
     let array = [];
@@ -154,7 +154,7 @@ export class DatabaseService {
     let last = this.getChatById(info[length - 1].$key);
     for(let i = 0; i < length; i++) {
       let id = this.getChatById(info[i].$key);
-      let a = i + 1;
+      let a = i;
       let currentInfo = info[a];
       let nextname;
       let nextText;
@@ -165,14 +165,9 @@ export class DatabaseService {
         nextText = currentInfo.text
         nextTime = currentInfo.time;
         nextTimeStamp = currentInfo.timestamp;
-
-=======
         let id = this.getChatById(info[i].$key);
-        console.log("IS Less than");
-        console.log(id);
-        console.log(info[i].$key);
         this.deleteChat(id, info);
->>>>>>> master
+
       }
       firebase.database().ref(`chat/anonymous/${i}`).set({
         'text': `${nextText}`,
