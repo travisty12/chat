@@ -8,6 +8,7 @@ export class DatabaseService {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   chat: FirebaseListObservable<any[]>;
+  a;
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
     this.chat = database.list('chat/anonymous');
@@ -92,13 +93,22 @@ export class DatabaseService {
     })
     return;
   }
+  getChatById(chatId: string){
+  return this.database.object(`chat/anonymous/${chatId}`);
+}
+
+  deleteChat(chat, info) {
+    let id = this.getChatById(chat.$key);
+    console.log(id);
+    console.log(chat);
+    this.a = this.chat;
+    console.log(info);
+    const length = info.length;
+    console.log(length);
+    // id.update({$key: "1000"});
+    // for(let i = 0; i < length; i++) {
+    //
+    // }
 
 
-  deleteChat() {
-
-  }
-
-  deletePost() {
-
-  }
 }
