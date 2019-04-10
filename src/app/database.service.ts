@@ -118,7 +118,7 @@ export class DatabaseService {
     chatEntryInFirebase.remove();
   }
 
-  deleteChat(id) {
+  deleteChat1(id) {
     id.remove();
   }
 
