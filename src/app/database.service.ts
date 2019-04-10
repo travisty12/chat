@@ -86,7 +86,9 @@ export class DatabaseService {
         'time': `${reply.time}`,
         'timestamp': `${reply.timestamp}`
       });
+
       location.reload();
+
     })
     return;
   }
