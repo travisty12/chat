@@ -86,6 +86,8 @@ export class DatabaseService {
         'time': `${reply.timestamp}`
       });
       console.log("in");
+      location.reload()
+
     })
     return;
   }

@@ -34,7 +34,7 @@ export const firebaseConfig = {
     LandingComponent,
     SplashComponent,
     BoardsComponent,
-    NewsComponent
+    NewsComponent,
     NavbarComponent
 
 

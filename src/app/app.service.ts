@@ -5,5 +5,5 @@ import { Subject } from 'rxjs/Subject';
 export class AppService {
 
   constructor() { }
-  public changeNavColor: subject = new Subject<any>();
+  public changeNavColor: Subject<any> = new Subject<any>();
 }
