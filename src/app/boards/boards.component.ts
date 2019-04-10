@@ -50,7 +50,12 @@ export class BoardsComponent implements OnInit {
     title = sanitize(title);
     const post = new Post(title, name, text, image);
     const boardName = board['$key'];
-    const i = this.threads.length;
+    let i;
+    if (this.threads) {
+      i = this.threads.length;
+    } else {
+      i = 0;
+    }
     this.databaseService.addThread(post, boardName, i);
     return;
   }
