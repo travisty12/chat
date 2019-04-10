@@ -51,6 +51,11 @@ $seaGreenColor: #5BF3C8;
     .text {
       display: none;
     }
+    input,button {
+      transition: 1s linear;
+      display: none;
+      width: 80px;
+    }
   }
   .extended {
     width: 30%;
@@ -81,7 +86,18 @@ $seaGreenColor: #5BF3C8;
         }
       }
     }
+    input,button {
+      display: flex;
+      width: 80px;
+    }
   }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .purple {

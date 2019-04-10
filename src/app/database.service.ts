@@ -12,8 +12,12 @@ export class DatabaseService {
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
     this.chat = database.list('chat/anonymous');
+
   }
 
+  checkPass(pass) {
+
+  }
   getBoards() {
     return this.boards;
   }
@@ -77,17 +81,12 @@ export class DatabaseService {
   }
 
   addMessage(reply, i) {
-    this.chat.subscribe(data => {
-      firebase.database().ref(`chat/anonymous/${i}`).set({
-        'text': `${reply.text}`,
-        'name': `${reply.name}`,
-        'time': `${reply.time}`,
-        'timestamp': `${reply.timestamp}`
-      });
-
-      location.reload();
-
-    })
+    firebase.database().ref(`chat/anonymous/${i}`).set({
+      'text': `${reply.text}`,
+      'name': `${reply.name}`,
+      'time': `${reply.time}`,
+      'timestamp': `${reply.timestamp}`
+    });
     return;
   }
   getChatById(chatId: string){
