@@ -68,3 +68,12 @@ $salmonColor: #F26161;
     }
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .all{
+    width: 100vw;
+    position: fixed;
+    height: 50px;
+
+  }
+}
