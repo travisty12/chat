@@ -98,17 +98,28 @@ export class DatabaseService {
 }
 
   deleteChat(chat, info) {
-    let id = this.getChatById(chat.$key);
-    console.log(id);
-    console.log(chat);
-    this.a = this.chat;
-    console.log(info);
-    const length = info.length;
-    console.log(length);
-    // id.update({$key: "1000"});
-    // for(let i = 0; i < length; i++) {
-    //
-    // }
+    let length = info.length;
+    let int = parseInt(chat.$key);
+    for(let i = int; i < length - 1; i++) {
+      let id = this.getChatById(info[i].$key);
+      let a = i + 1;
+      let currentInfo = info[a];
+      let nextname = currentInfo.name;
+      let nextText = currentInfo.text
+      let nextTime = currentInfo.time;
+      let nextTimeStamp = currentInfo.timestamp;
+      id.update({name: nextname,
+                 text: nextText,
+                 time: nextTime,
+                 nextTimeStamp: nextTimeStamp});
+    }
 
 
+  }
+
+  deleteLastChat(last) {
+    console.log(last);
+    var chatEntryInFirebase = this.getChatById(last.$key);
+    chatEntryInFirebase.remove();
+  }
 }

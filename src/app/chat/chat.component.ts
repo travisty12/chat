@@ -56,5 +56,8 @@ export class ChatComponent implements OnInit {
       this.b = info;
     })
     this.databaseService.deleteChat(chat, this.b);
+    let length = this.b.length;
+    var last = this.b[length - 1];
+    this.databaseService.deleteLastChat(last);
   }
 }
