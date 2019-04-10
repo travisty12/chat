@@ -1,7 +1,14 @@
-<div class="all">
-  <h1>Trading Values</h1>
-  <div class="pill animated fadeOut hvr-grow">
+<div class="news">
+  <div *ngFor="let article of articles; let i = index">
+    <div class="container">
+      <h3>{{article[0].author}}</h3>
+      <h3>{{article[0].title}}</h3>
+      <h3>{{article[0].content}}</h3>
+      <h3>{{article[0].description}}</h3>
+      <a href="{{article[0].url}}"><button >To Website!</button></a>
+      <img src="{{article[0].image}}">
 
-    <img src="../../assets/img/newsPost.png" alt="">
+    </div>
   </div>
+
 </div>
