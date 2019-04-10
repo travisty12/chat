@@ -13,6 +13,11 @@
     </div>
     <div class="mid"></div>
     <div class="bottom">
+      <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
+      <form *ngIf="loginShown" ng-submit="checkAuth(authTest.value);authTest.value=''">
+        <input type="password" #authTest>
+        <button (click)="checkAuth(authTest.value);authTest.value=''"></button>
+      </form>
     </div>
   </div>
 </div>

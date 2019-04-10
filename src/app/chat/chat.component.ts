@@ -3,7 +3,6 @@ import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Message } from '../message.model';
 import { cleanInput, sanitize } from '../sanitize';
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -16,10 +15,22 @@ export class ChatComponent implements OnInit {
   @Input() allChats;
   a;
   b;
-  constructor(private databaseService: DatabaseService) { }
+  autoDelete;
+  constructor(private databaseService: DatabaseService) {
+}
 
   ngOnInit() {
     this.chats = this.databaseService.getChat();
+    this.main();
+  }
+
+  main() {
+    console.log("Is WOrking");
+    setInterval(() => {
+      console.log("Is Working");
+      this.autoDeleteMessage();
+    },6000)
+
   }
 
   sendMessage(message: string, name: string) {
@@ -33,6 +44,7 @@ export class ChatComponent implements OnInit {
     }
     this.chats.subscribe(info => {
       that.a = info;
+      that.b = info;
     })
     let i;
     if(this.a) {
@@ -41,22 +53,30 @@ export class ChatComponent implements OnInit {
       i = 0;
     }
     const reply = new Message(sanitize(message), user);
-    // for (let j = 0; j < this.a.length; j++) {
-    //   const messageIndex = j;
-    //   console.log("IS working");
-    // }
     this.databaseService.addMessage(reply, i);
     return;
-
   }
 
 
   deleteThisMessage(chat) {
+    let that = this;
     this.chats.subscribe(info => {
-      this.b = info;
+      that.b = info;
+    });
     this.databaseService.deleteChat(chat, this.b);
     let length = this.b.length;
     var last = this.b[length - 1];
     this.databaseService.deleteLastChat(last);
+  }
+
+
+  autoDeleteMessage() {
+    let that = this;
+    this.chats.subscribe(info => {
+      that.b = info;
+    });
+    this.autoDelete = this.b;
+    var last = this.autoDelete[length - 1];
+    this.databaseService.autoDeleteChat(this.autoDelete);
   }
 }

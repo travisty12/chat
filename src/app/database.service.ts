@@ -12,8 +12,12 @@ export class DatabaseService {
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
     this.chat = database.list('chat/anonymous');
+
   }
 
+  checkAuth(pass) {
+
+  }
   getBoards() {
     return this.boards;
   }
@@ -28,11 +32,11 @@ export class DatabaseService {
           const replyLocation = this.database.list(`boards/${board}/threads/${threadNum}/replies`);
           const thread = this.database.object(`boards/${board}/threads/${threadNum}/post`);
           thread.update({recentTimestamp: reply.timestamp});
-          console.log(reply);
 
           firebase.database().ref(replyString + '/' + index).set({
             'comment': `${reply.comment}`,
             'image': `${reply.image}`,
+            'time': `${reply.time}`,
             'timestamp': `${reply.timestamp}`,
             'username': `${reply.username}`
           });
@@ -45,34 +49,34 @@ export class DatabaseService {
         }
       }
     })
-    // console.log(this.boards.{board});
-    // console.log(this.boards[board].threads.thread.replies);
     // this.boards.board.threads.thread.replies.push();
   }
 
 
   addThread(post, board, index) {
-    this.boards.subscribe(data => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i]['$key'] == board) {
-          const postString = `boards/${board}/threads/`;
-          const postLocation = this.database.list(postString);
+    const postString = `boards/${board}/threads/`;
 
-          firebase.database().ref(postString + '/' + index + '/post').set({
-            'title': `${post.title}`,
-            'comment': `${post.comment}`,
-            'image': `${post.image}`,
-            'timestamp': `${post.timestamp}`,
-            'username': `${post.username}`
-          });
-          return;
-
-
-          // replyLocation.push(reply);
-          // this.boards[i].threads[thread].replies.push(reply);
-        }
-      }
-    })
+    // this.boards.subscribe(data => {
+    //   for (let i = 0; i < data.length; i++) {
+    //     if (data[i]['$key'] == board) {
+    //
+    //
+    //
+    //       // replyLocation.push(reply);
+    //       // this.boards[i].threads[thread].replies.push(reply);
+    //     }
+    //   }
+    // })
+    const postLocation = this.database.list(postString);
+    firebase.database().ref(postString + '/' + index + '/post').set({
+      'title': `${post.title}`,
+      'comment': `${post.comment}`,
+      'image': `${post.image}`,
+      'time': `${post.time}`,
+      'timestamp': `${post.timestamp}`,
+      'username': `${post.username}`
+    });
+    return;
   }
 
   getChat() {
@@ -80,17 +84,12 @@ export class DatabaseService {
   }
 
   addMessage(reply, i) {
-    this.chat.subscribe(data => {
-      firebase.database().ref(`chat/anonymous/${i}`).set({
-        'text': `${reply.text}`,
-        'name': `${reply.name}`,
-        'time': `${reply.time}`,
-        'timestamp': `${reply.timestamp}`
-      });
-
-      location.reload();
-
-    })
+    firebase.database().ref(`chat/anonymous/${i}`).set({
+      'text': `${reply.text}`,
+      'name': `${reply.name}`,
+      'time': `${reply.time}`,
+      'timestamp': `${reply.timestamp}`
+    });
     return;
   }
   getChatById(chatId: string){
@@ -118,8 +117,28 @@ export class DatabaseService {
   }
 
   deleteLastChat(last) {
-    console.log(last);
     var chatEntryInFirebase = this.getChatById(last.$key);
     chatEntryInFirebase.remove();
+  }
+
+
+
+  autoDeleteChat(info) {
+    console.log(info);
+    let currentTime = Date.now();
+    let hour = currentTime - 6000;
+    console.log(currentTime);
+    let length = info.length;
+    console.log(length);
+    for(let i = 0; i < length; i++) {
+      let time = info[i].timestamp;
+      if(time < hour) {
+        let id = this.getChatById(info[i].$key);
+        console.log("IS Less than");
+        console.log(id);
+        console.log(info[i].$key);
+        this.deleteChat(id, info);
+      }
+    }
   }
 }
