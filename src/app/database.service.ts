@@ -118,12 +118,27 @@ export class DatabaseService {
     chatEntryInFirebase.remove();
   }
 
+  deleteChat(id) {
+    id.remove();
+  }
+
 
   autoDeleteChat(info) {
     console.log(info);
     let currentTime = Date.now();
     let hour = currentTime - 3600000;
+    console.log(currentTime);
     let length = info.length;
     console.log(length);
+    for(let i = 0; i < length; i++) {
+      let time = info[i].timestamp;
+      if(time < hour) {
+        let id = this.getChatById(info[i].$key);
+        console.log("IS Less than");
+        console.log(id);
+        console.log(info[i].$key);
+        this.deleteChat(id);
+      }
+    }
   }
 }
