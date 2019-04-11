@@ -20,8 +20,8 @@
 <div class="login">
   <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
   <form *ngIf="loginShown" ng-submit="adminAccess = checkAuth(authTest.value);authTest.value=''">
-    <input type="password" #authUser>
-    <input type="password" #authTest>
-    <button (click)="adminAccess = checkAuth(authUser.value, authTest.value);authUser.value='';authTest.value=''"></button>
+    <input type="password" #authUser placeholder="UserName">
+    <input type="password" #authTest placeholder="Password">
+    <button (click)="adminAccess = checkAuth(authUser.value, authTest.value);authUser.value='';authTest.value=''">Sign-In!</button>
   </form>
 </div>
