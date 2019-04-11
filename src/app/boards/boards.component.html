@@ -11,7 +11,7 @@
 
       <div class = "forumWork" *ngIf="activeBoard">
         <div *ngIf="!threadShown">
-          <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
+          <h3 class="topic" *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
           <div *ngIf="postThread">
             <h3 (click)="postThread=!postThread">Close</h3>
             <label>Your Name:</label>
