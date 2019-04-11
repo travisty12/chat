@@ -59,6 +59,7 @@ export class ChatComponent implements OnInit {
   }
 
 
+
   deleteThisMessage(chat) {
     let that = this;
     this.chats.subscribe(info => {
