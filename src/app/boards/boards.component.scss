@@ -13,15 +13,23 @@
   background-position: center;
 
   h1 {
-    margin-top: 60px;
+    // margin-top: 60px;
     text-align: center;
     color: #73AD21;
   }
+ .forumInfo {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   h5 {
 
-  h5 {
-    text-align: center;
-    color: black;
-  }
+     width: 10vw;
+     text-align: center;
+     border: 2px solid lightgrey;
+     color: lightgrey;
+
+   }
+ }
 
 }
 
@@ -43,33 +51,45 @@
 
 .boardTotal {
 height: 100%;
-  p {
-    text-align: center;
-    color: #F39D5B;
+  h3 {
+    margin-left: 0px;
+    text-align: left;
+    color: #878685;
+
 
   }
 }
 
 .forumWork {
   background-color: lightgrey;
-  height: 100%;
+
+  // height: 70vh;
+  // margin-bottom: 20px;
 
 }
 
 h6 {
-  color: yellow;
+  margin-left: 20px;
+  color: black;
 }
 
-h5 {
-  color: green;
-}
+
 
 h4 {
-  color: red;
+  color: grey;
+
 }
 
-h3 {
-  margin-left: 20px;
-  text-decoration: underline;
-  color: blue;
+
+
+.thread {
+  p {
+    border: 1px dotted black;
+    color: #666564;
+  }
+  h5 {
+    border: 1px solid black;
+    text-decoration: underline;
+    color: blue;
+  }
 }

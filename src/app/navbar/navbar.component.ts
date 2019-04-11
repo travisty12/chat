@@ -42,13 +42,4 @@ export class NavbarComponent implements OnInit {
     this.extendMenu = false;
     this.style[0].classList = 'all orange'
   }
-  checkAuth(pass) {
-    this.loginShown = false;
-    if(this.database.checkAuth(pass)) {
-      return true;
-
-    } else {
-      return false;
-    }
-  }
 }
