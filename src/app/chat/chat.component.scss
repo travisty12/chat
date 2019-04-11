@@ -83,7 +83,10 @@ $purpleColor: #925BF3;
 
 .sendMessage {
   background-color: black;
+}
 
+#send {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 900px) {
