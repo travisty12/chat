@@ -56,6 +56,10 @@
 ## Screenshots WireFrame / Prototype // live
 * ![application example](src/assets/img/screenProto.gif)
 
+
+## Screenshots of Build/ Live Deployment
+* ![application example](src/assets/img/buildScreen.gif)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 
