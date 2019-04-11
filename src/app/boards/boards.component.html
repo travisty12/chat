@@ -36,16 +36,16 @@
           </div>
         </div>
         <div *ngIf="threadShown">
-          <div (click)="threadShown=!threadShown; postThread = false; postReply=false;">Close</div>
+          <div class="topic" (click)="threadShown=!threadShown; postThread = false; postReply=false;">Close</div>
           <div class="thread">
             <div class ="forumComment">
               <h1>{{activeThread.post.title}}</h1>
               <span><h2>{{activeThread.post.username}}</h2> <h5> {{activeThread.post.time}}</h5></span>
               <h4 class="tagline">{{activeThread.post.comment}}</h4>
             </div>
-            <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5>
+            <h5 *ngIf="!postReply" (click)="postReply=true" class="topic">Post a reply</h5>
             <div class= "forumComment"*ngIf="postReply">
-              <p (click)="postReply=false">Close</p>
+              <p class="topic" (click)="postReply=false">Close</p>
               <div>
                 <label>Your Name:</label>
                 <input #postName>
@@ -63,6 +63,7 @@
           </div>
 
         </div>
+
 
         </div>
       </div>
