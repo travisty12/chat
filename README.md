@@ -97,6 +97,7 @@ _As of April 11th 2019 there are no known bugs_
 * Typescript
 * API
 * Firebase
+* bcrypt
 
 ## Further help
 
