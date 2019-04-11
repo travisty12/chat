@@ -8,7 +8,23 @@
         <h5 *ngFor="let board of boards | async" (click)="activeBoard =board;loadBoard(board);threadShown=false" class='topic'>{{board['$key']}}</h5>
       </div>
       <div class="boardTotal">
+
       <div class = "forumWork" *ngIf="activeBoard">
+        <div *ngIf="!threadShown">
+          <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
+          <div *ngIf="postThread">
+            <h3 (click)="postThread=!postThread">Close</h3>
+            <label>Your Name:</label>
+            <input #opName>
+            <label>Title:</label>
+            <input #opTitle>
+            <label>Reply:</label>
+            <br>
+            <textarea #opText></textarea>
+            <button (click)="postThread=false;newThread(opText.value, opName.value, opTitle.value, activeBoard);loadBoard(activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
+
+            </div>
+          </div>
         <div *ngIf="!threadShown">
 
           <br>
@@ -47,21 +63,8 @@
           </div>
 
         </div>
-        <div *ngIf="!threadShown">
-          <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
-          <div *ngIf="postThread">
-            <h3 class="topic" (click)="postThread=!postThread">Close</h3>
-            <label>Your Name:</label>
-            <input #opName>
-            <label>Title:</label>
-            <input #opTitle>
-            <label>Reply:</label>
-            <br>
-            <textarea #opText></textarea>
-            <button (click)="postThread=false;newThread(opText.value, opName.value, opTitle.value, activeBoard);loadBoard(activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
 
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
