@@ -8,13 +8,13 @@
         <button (click)="deleteThisMessage(chat)">Admin Delete</button>
       </div>
     </div>
-    <div class="sendMessage">
+    <div class="sendMessages">
       <form ng-submit="sendMessage(userMessage.value, userName.value); userMessage.value=''; userName.value='';" method="post">
         <label>Name</label>
         <input #userName>
         <label>Message</label>
         <input #userMessage>
-        <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
+        <button id="send" (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
       </form>
     </div>
   </div>
