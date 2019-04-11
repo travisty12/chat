@@ -20,6 +20,7 @@ export class DatabaseService {
 
 
 
+
   checkAuth(user, pass, that) {
     let hash;
     let passToCheck;
@@ -108,6 +109,8 @@ export class DatabaseService {
       'time': `${reply.time}`,
       'timestamp': `${reply.timestamp}`
     });
+    document.getElementById("scrollView").scrollTop += (document.getElementById("scrollView").scrollHeight);
+
     return;
   }
   getChatById(chatId: string){

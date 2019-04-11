@@ -1,15 +1,20 @@
 $purpleColor: #925BF3;
-
+.chatDivs {
+  // display: flex;
+  // flex-direction: row;
+}
 .chat {
   margin-left: 100px;
 }
 .login {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   z-index: 1;
   button {
     width: 80px;
+    // background-color: transparent;
+    // border: none;
   }
   form {
     width: 80px;
