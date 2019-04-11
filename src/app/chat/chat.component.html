@@ -14,7 +14,7 @@
         <input #userName>
         <label>Message</label>
         <input #userMessage>
-        <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
+        <button id="send" (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
       </form>
     </div>
   </div>
