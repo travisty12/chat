@@ -1,9 +1,11 @@
 <div class="all">
-  <div class="bar navbar" [class]='menu()'>
+  <div class="navbar" [class]='menu()'>
     <div class="top">
       <div class="logo">
         <img (click)="extendMenu = !extendMenu" src="../../assets/icons/dots.png" alt="">
         <h1 (click)="extendMenu = !extendMenu">MENU</h1>
+        <img (click)="extendMenu = !extendMenu" class="mobile" src="../../assets/icons/horizontalDots.png" alt="">
+        <h2 (click)="extendMenu = !extendMenu" class="mobile">MENU</h2>
       </div>
       <div class="text">
         <h1 (click)="toChat()">CHAT</h1>
@@ -13,6 +15,7 @@
     </div>
     <div class="mid"></div>
     <div class="bottom">
+      <img src="../../assets/img/8998.png" alt="">
     </div>
   </div>
 </div>
