@@ -1,27 +1,29 @@
-<div class="chat">
-  <div class="allMessages" *ngFor="let chat of chats | async">
-    <h4>{{chat.name}}</h4>
-    <h6>{{chat.time}}</h6>
-    <h3>{{chat.text}}</h3>
-    <div *ngIf="adminAccess">
-      <button (click)="deleteThisMessage(chat)">Admin Delete</button>
+<div class="chatDivs">
+  <div id="scrollView" class="chat">
+    <div class="allMessages" *ngFor="let chat of chats | async">
+      <h4>{{chat.name}}</h4>
+      <h6>{{chat.time}}</h6>
+      <h3>{{chat.text}}</h3>
+      <div *ngIf="adminAccess">
+        <button (click)="deleteThisMessage(chat)">Admin Delete</button>
+      </div>
+    </div>
+    <div class="sendMessage">
+      <form ng-submit="sendMessage(userMessage.value, userName.value); userMessage.value=''; userName.value='';" method="post">
+        <label>Name</label>
+        <input #userName>
+        <label>Message</label>
+        <input #userMessage>
+        <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
+      </form>
     </div>
   </div>
-  <div class="sendMessage">
-    <form ng-submit="sendMessage(userMessage.value, userName.value); userMessage.value=''; userName.value='';" method="post">
-      <label>Name</label>
-      <input #userName>
-      <label>Message</label>
-      <input #userMessage>
-      <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
+  <div class="login">
+    <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
+    <form *ngIf="loginShown" ng-submit="adminAccess = checkAuth(authTest.value);authTest.value=''">
+      <input type="password" #authUser>
+      <input type="password" #authTest>
+      <button (click)="adminAccess = checkAuth(authUser.value, authTest.value);authUser.value='';authTest.value=''"></button>
     </form>
   </div>
-</div>
-<div class="login">
-  <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
-  <form *ngIf="loginShown" ng-submit="adminAccess = checkAuth(authTest.value);authTest.value=''">
-    <input type="password" #authUser placeholder="UserName">
-    <input type="password" #authTest placeholder="Password">
-    <button (click)="adminAccess = checkAuth(authUser.value, authTest.value);authUser.value='';authTest.value=''">Sign-In!</button>
-  </form>
 </div>

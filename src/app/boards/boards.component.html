@@ -22,8 +22,9 @@
         <div *ngIf="threadShown">
           <div (click)="threadShown=!threadShown; postThread = false; postReply=false;">Close</div>
           <div class="thread">
-            <h2>{{activeThread.post.username}} | {{activeThread.post.time}} | {{activeThread.post.title}}</h2>
-            <h3 class="tagline">{{activeThread.post.comment}}</h3>
+            <h1>{{activeThread.post.title}}</h1>
+            <span><h2>{{activeThread.post.username}}</h2> <h5> {{activeThread.post.time}}</h5></span>
+            <h4 class="tagline">{{activeThread.post.comment}}</h4>
             <br>
             <div *ngIf="postReply">
               <p (click)="postReply=false">Close</p>
@@ -38,8 +39,8 @@
             </div>
             <br>
             <div *ngFor="let reply of replies">
-              <h2 class='userName'>{{reply.username}} | {{reply.time}}</h2>
-              <h3 class="reply">{{reply.comment}}</h3>
+              <span><h2 class='userName'>{{reply.username}}</h2> <h4> {{reply.time}}</h4></span>
+              <h4 class="reply">{{reply.comment}}</h4>
             </div>
           </div>
             <h5 *ngIf="!postReply" (click)="postReply=true">Post a reply</h5>
