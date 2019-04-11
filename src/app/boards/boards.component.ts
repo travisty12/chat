@@ -52,7 +52,8 @@ export class BoardsComponent implements OnInit {
     const boardName = board['$key'];
     let i;
     if (this.threads) {
-      i = this.threads.length;
+      i = this.threads;
+      i = i.length;
     } else {
       i = 0;
     }
@@ -77,7 +78,10 @@ export class BoardsComponent implements OnInit {
     }
     const reply = new Reply(text, name, image);
     const boardName = board['$key'];
-    for (let j = 0; j < this.threads.length; j++) {
+    let jLength;
+    jLength = this.threads;
+    jLength = jLength.length;
+    for (let j = 0; j < jLength; j++) {
       if (this.threads[j] == thread) {
         const threadIndex = j;
         this.databaseService.addReply(reply, threadIndex, boardName, i);

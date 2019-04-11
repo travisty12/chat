@@ -13,8 +13,8 @@ $purpleColor: #925BF3;
   z-index: 1;
   button {
     width: 80px;
-    // background-color: transparent;
-    // border: none;
+    background-color: transparent;
+    border: none;
   }
   form {
     width: 80px;
@@ -33,7 +33,7 @@ $purpleColor: #925BF3;
   width: 40vw;
   height: 90vh;
   background-image: url("../../assets/img/chatBack.gif");
-background-size: cover;
+  background-size: cover;
   color: #BBF35B;
   overflow: auto;
   &::-webkit-scrollbar {

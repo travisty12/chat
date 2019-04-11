@@ -5,7 +5,7 @@
         <a class="navbar-brand"><h1>89/98 Forums</h1></a>
       </div>
       <div class="forumInfo">
-        <h5 *ngFor="let board of boards | async" (click)="activeBoard =board;loadBoard(board);threadShown=false">{{board['$key']}}</h5>
+        <h5 *ngFor="let board of boards | async" (click)="activeBoard =board;loadBoard(board);threadShown=false" class='topic'>{{board['$key']}}</h5>
       </div>
       <div class="boardTotal">
       <div class = "forumWork" *ngIf="activeBoard">
@@ -14,8 +14,8 @@
           <br>
           <div *ngFor="let thread of threads">
             <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
-              <h3>{{thread.post.title}}</h3>
-              <h4>{{thread.post.comment}}</h4>
+              <h3 class="topic">{{thread.post.title}}</h3>
+              <h4 class='topic'>{{thread.post.comment}}</h4>
             </div>
           </div>
         </div>
