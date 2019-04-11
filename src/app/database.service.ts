@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 declare var require: any;
 var firebase = require('firebase/app');
+var bcrypt = require('bcryptjs');
 
 @Injectable()
 export class DatabaseService {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   chat: FirebaseListObservable<any[]>;
+  adminAccess = false;
   a;
   chatLength;
   constructor(private database: AngularFireDatabase) {
@@ -16,8 +18,23 @@ export class DatabaseService {
 
   }
 
-  checkAuth(pass) {
 
+
+  checkAuth(user, pass, that) {
+    let hash;
+    let passToCheck;
+    this.database.object(`data/aInfo/${user}/pass`).subscribe(password => {
+      passToCheck = password;
+      hash = passToCheck['$value'];
+      bcrypt.compare(pass, hash).then((res) => {
+        if (res) {
+          return that.adminAccess = true;
+        } else {
+          return that.adminAccess = false;
+        }
+
+      });
+    })
   }
   getBoards() {
     return this.boards;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../database.service';
 
@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   loginShown = false;
   style;
   extendMenu;
+  @Input() adminAccess;
 
   menu(){
     if (this.extendMenu){
@@ -40,10 +41,5 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['news']);
     this.extendMenu = false;
     this.style[0].classList = 'all orange'
-  }
-  checkAuth(pass) {
-    this.database.checkAuth(pass);
-    this.loginShown = false;
-    return;
   }
 }

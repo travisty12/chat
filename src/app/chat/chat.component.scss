@@ -3,6 +3,18 @@ $purpleColor: #925BF3;
 .chat {
   margin-left: 100px;
 }
+.login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  button {
+    width: 80px;
+  }
+  form {
+    width: 80px;
+  }
+}
 
 .chat{
   display: flex;

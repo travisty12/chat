@@ -4,9 +4,8 @@
     <h6>{{chat.time}}</h6>
     <h3>{{chat.text}}</h3>
     <div *ngIf="adminAccess">
-
+      <button (click)="deleteThisMessage(chat)">Admin Delete</button>
     </div>
-    <button (click)="deleteThisMessage(chat)">Admin Delete</button>
   </div>
   <div class="sendMessage">
     <form ng-submit="sendMessage(userMessage.value, userName.value); userMessage.value=''; userName.value='';" method="post">
@@ -17,4 +16,12 @@
       <button (click)="sendMessage(userMessage.value, userName.value); userMessage.value='';">Send!</button>
     </form>
   </div>
+</div>
+<div class="login">
+  <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
+  <form *ngIf="loginShown" ng-submit="adminAccess = checkAuth(authTest.value);authTest.value=''">
+    <input type="password" #authUser>
+    <input type="password" #authTest>
+    <button (click)="adminAccess = checkAuth(authUser.value, authTest.value);authUser.value='';authTest.value=''"></button>
+  </form>
 </div>
