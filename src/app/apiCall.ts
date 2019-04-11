@@ -7,6 +7,6 @@ import { masterFirebaseConfig } from './api-keys';
 export class ApiCall {
   constructor(public http: Http) { }
   callApi() {
-    return this.http.get(`https://newsapi.org/v2/everything?q=cryptocurrency&from=2019-03-10&sortBy=publishedAt&apiKey=${masterFirebaseConfig.newsApi}`);
+    return this.http.get(`https://newsapi.org/v2/everything?q=cryptocurrency&from=2019-04-10&sortBy=publishedAt&apiKey=${masterFirebaseConfig.newsApi}`);
   }
 }
