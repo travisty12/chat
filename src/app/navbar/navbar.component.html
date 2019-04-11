@@ -16,11 +16,6 @@
     <div class="mid"></div>
     <div class="bottom">
       <img src="../../assets/img/8998.png" alt="">
-      <button *ngIf="!loginShown" (click)="loginShown='true'">login</button>
-      <form *ngIf="loginShown" ng-submit="checkAuth(authTest.value);authTest.value=''">
-        <input type="password" #authTest>
-        <button (click)="adminAccess = checkAuth(authTest.value);authTest.value=''"></button>
-      </form>
     </div>
   </div>
 </div>
