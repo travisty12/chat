@@ -29,7 +29,7 @@ export class ChatComponent implements OnInit {
   main() {
     setInterval(() => {
       this.autoDeleteMessage();
-    },6000)
+    },1000)
 
   }
 
