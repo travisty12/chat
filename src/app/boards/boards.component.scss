@@ -38,6 +38,7 @@
 
 }
 
+
 .admin {
   color: salmon;
 }
@@ -48,7 +49,7 @@
 
 .body {
   // background: black;
-  height: 90%;
+  height: 0;
   app-forum{
     height: 100%;
   }
@@ -62,17 +63,28 @@ height: 100%;
     margin-left: 0px;
     text-align: left;
     color: black;
-
-
   }
 }
 
+.tagline {
+  margin-top: 0px;
+}
+
 .forumWork {
-  background-color: lightgrey;
+  background-color:#4a4949;
+  overflow: scroll;
+  border-radius: 25px;
 
-  // height: 70vh;
-  // margin-bottom: 20px;
+}
 
+nav {
+  height: 100%;
+  overflow: scroll;
+}
+
+
+.boardTotal{
+  overflow: scroll;
 }
 
 h6 {
@@ -91,22 +103,19 @@ h4 {
 
 .thread {
   p {
-    border: 1px dotted black;
     color: #666564;
   }
   h5 {
     border: 1px solid black;
     text-decoration: underline;
-    color: blue;
   }
-  h4 {
-    text-decoration: underline;
-  }
+
 
   h5 {
     color: black;
     border: none;
     text-decoration: none;
+    margin-left: 10px;
   }
 
   h1 {
@@ -116,9 +125,12 @@ h4 {
   }
 }
 
-span {
-  display: flex;
-  flex-direction: row;
+.forumComment {
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+  border: 1px solid black;
 }
 
 .topic {
