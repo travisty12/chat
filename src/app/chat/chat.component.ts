@@ -16,6 +16,8 @@ export class ChatComponent implements OnInit {
   a;
   b;
   autoDelete;
+  loginShown = false;
+  adminAccess = false;
   constructor(private databaseService: DatabaseService) {
 }
 
@@ -25,9 +27,7 @@ export class ChatComponent implements OnInit {
   }
 
   main() {
-    console.log("Is WOrking");
     setInterval(() => {
-      console.log("Is Working");
       this.autoDeleteMessage();
     },6000)
 
@@ -78,5 +78,19 @@ export class ChatComponent implements OnInit {
     this.autoDelete = this.b;
     var last = this.autoDelete[length - 1];
     this.databaseService.autoDeleteChat(this.autoDelete);
+  }
+  checkAuth(user,pass) {
+    this.loginShown = false;
+
+    this.databaseService.checkAuth(user,pass, this);
+    // if() {
+    //   console.log("yes");
+    //   return true;
+    //
+    // } else {
+    //   console.log("no");
+    //
+    //   return false;
+    // }
   }
 }

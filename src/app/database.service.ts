@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 declare var require: any;
 var firebase = require('firebase/app');
+var bcrypt = require('bcryptjs');
 
 @Injectable()
 export class DatabaseService {
   boards: FirebaseListObservable<any[]>;
   threads: FirebaseListObservable<any[]>;
   chat: FirebaseListObservable<any[]>;
+  adminAccess = false;
   a;
   constructor(private database: AngularFireDatabase) {
     this.boards = database.list('boards');
@@ -15,8 +17,23 @@ export class DatabaseService {
 
   }
 
-  checkAuth(pass) {
 
+
+  checkAuth(user, pass, that) {
+    let hash;
+    let passToCheck;
+    this.database.object(`data/aInfo/${user}/pass`).subscribe(password => {
+      passToCheck = password;
+      hash = passToCheck['$value'];
+      bcrypt.compare(pass, hash).then((res) => {
+        if (res) {
+          return that.adminAccess = true;
+        } else {
+          return that.adminAccess = false;
+        }
+
+      });
+    })
   }
   getBoards() {
     return this.boards;
@@ -124,19 +141,13 @@ export class DatabaseService {
 
 
   autoDeleteChat(info) {
-    console.log(info);
     let currentTime = Date.now();
     let hour = currentTime - 6000;
-    console.log(currentTime);
     let length = info.length;
-    console.log(length);
     for(let i = 0; i < length; i++) {
       let time = info[i].timestamp;
       if(time < hour) {
         let id = this.getChatById(info[i].$key);
-        console.log("IS Less than");
-        console.log(id);
-        console.log(info[i].$key);
         this.deleteChat(id, info);
       }
     }
