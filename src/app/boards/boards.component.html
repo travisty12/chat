@@ -10,6 +10,7 @@
       <div class="boardTotal">
 
       <div class = "forumWork" *ngIf="activeBoard">
+        <h1>{{activeBoard['$key']}}</h1>
         <div *ngIf="!threadShown">
           <h3 *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
           <div *ngIf="postThread">
@@ -18,8 +19,8 @@
             <input #opName>
             <label>Title:</label>
             <input #opTitle>
-            <label>Reply:</label>
             <br>
+            <label>Reply:</label>
             <textarea #opText></textarea>
             <button (click)="postThread=false;newThread(opText.value, opName.value, opTitle.value, activeBoard);loadBoard(activeBoard);opName.value='';opText.value='';opTitle.value=''">+</button>
 
@@ -49,8 +50,8 @@
               <div>
                 <label>Your Name:</label>
                 <input #postName>
-                <label>Reply:</label>
                 <br>
+                <label>Reply:</label>
                 <textarea #postText></textarea>
               </div>
               <button (click)="submitPost(postText.value, postName.value, activeThread, activeBoard);postText.value='';postName.value=''">Submit</button>
