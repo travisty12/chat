@@ -78,26 +78,33 @@ $purpleColor: #925BF3;
 @media (max-width: 900px) {
   .chatDivs{
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     // display: grid;
     .chat{
       width: 95%;
-      min-height: 85%;
-      max-height: 85%;
+      min-height: 95%;
+      max-height: 95%;
       margin-top: 50px;
       background-position: bottom;
       .sendMessages {
+        position: inherit;
         width: 95%;
         height: 20px;
+        padding: 3px;
         form {
           display: flex;
           input {
+            width: 35%;
             border-radius: 5px;
+          }
+          button {
+            display: none;
           }
         }
       }
     }
     .login {
+      border: 2px solid red;
       width: 100px;
       color: white;
       form{

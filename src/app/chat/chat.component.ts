@@ -54,7 +54,6 @@ export class ChatComponent implements OnInit {
     }
     const reply = new Message(sanitize(message), user);
     this.databaseService.addMessage(reply, i);
-
     return;
   }
 
