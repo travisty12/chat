@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Message } from '../message.model';
@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
   loginShown = false;
   adminAccess = false;
   constructor(private databaseService: DatabaseService) {
-}
+  }
 
   ngOnInit() {
     this.chats = this.databaseService.getChat();
@@ -54,6 +54,7 @@ export class ChatComponent implements OnInit {
     }
     const reply = new Message(sanitize(message), user);
     this.databaseService.addMessage(reply, i);
+
     return;
   }
 
