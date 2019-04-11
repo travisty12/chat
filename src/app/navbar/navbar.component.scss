@@ -21,6 +21,9 @@ $seaGreenColor: #5BF3C8;
       .logo {
         color: $seaGreenColor;
         transition: .3s linear;
+        .mobile {
+          display: none;
+        }
         h1 {
           writing-mode: vertical-rl;
           text-orientation: upright;
