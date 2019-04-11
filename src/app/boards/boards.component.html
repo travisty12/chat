@@ -10,6 +10,7 @@
       <div class="boardTotal">
 
       <div class = "forumWork" *ngIf="activeBoard">
+        <h1>{{activeBoard['$key']}}</h1>
         <div *ngIf="!threadShown">
           <h3 class="topic" *ngIf="!postThread" (click)="postThread=!postThread">New Thread</h3>
           <div *ngIf="postThread">
