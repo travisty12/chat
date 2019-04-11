@@ -59,7 +59,7 @@ export class DatabaseService {
             'timestamp': `${reply.timestamp}`,
             'username': `${reply.username}`
           });
-          location.reload();
+          // location.reload();
           // return;
 
 
