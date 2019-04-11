@@ -25,7 +25,7 @@ export class DatabaseService {
     let passToCheck;
     this.database.object(`data/aInfo/${user}/pass`).subscribe(password => {
       passToCheck = password;
-      hash = passToCheck['$value'];
+      hash = passToCheck['$value'] + '';
       bcrypt.compare(pass, hash).then((res) => {
         if (res) {
           return that.adminAccess = true;
