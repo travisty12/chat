@@ -29,12 +29,13 @@ h1 {
   justify-content: center;
   margin: auto;
   border-radius: 25px;
-  border: 2px solid #BBF35B;
+  border: 2px solid #f39D5B;
   margin-top: 25px;
   // padding: 20px;
   width: 40vw;
   height: 90vh;
-  // background-color:#4a4949;
+  overflow: none;
+  background-color:#4a4949;
   // background-image: url("../../assets/img/chatBack.gif");
   // background-color: lightgrey;
   color: white;
@@ -48,6 +49,24 @@ h1 {
   h3 {
     text-align: center;
   }
+.container {
+  a {
+    display: flex;
+    justify-content: center;
+    button {
+      display: flex;
+    justify-content: center;
+    color: white;
+    background-color: grey;
+    }
+  }
+}
+
+img {
+  margin: 0 auto;
+  width: 90%;
+}
+
   h4 {
     margin-bottom: auto;
     text-align: center;
